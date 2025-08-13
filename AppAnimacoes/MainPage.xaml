@@ -30,6 +30,8 @@
                     Clicked="btnTremer_Clicked"/>
             <Button Text="Fade"
                     Clicked="btnFade_Clicked"/>
+            <Button Text="GirarZoomMais"
+                    Clicked="btnGirarZoomMais_Clicked"/>
         </StackLayout>
     </StackLayout>
 </ContentPage>

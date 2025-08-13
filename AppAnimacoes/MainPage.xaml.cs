@@ -99,5 +99,18 @@
             imgTeste.Opacity = 0;
             await imgTeste.FadeTo(1, 1000);
         }
+
+        private async void btnGirarZoomMais_Clicked(object sender, EventArgs e)
+        {
+            imgTeste.Rotation = 0;
+
+            await Task.WhenAny<bool>
+            (
+                imgTeste.RotateTo(360, 2000),
+                imgTeste.ScaleTo(2, 1000)
+            );
+            await imgTeste.ScaleTo(1, 1000);
+
+        }
     }
 }
