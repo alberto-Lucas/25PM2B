@@ -17,12 +17,22 @@
                            HorizontalOptions="Start"/>
                     <Entry x:Name="txtEmail"
                            ClearButtonVisibility="WhileEditing"/>
+                    <Label x:Name="lblValidationEmail"
+                           Text="* Informe o email."
+                           TextColor="Red"
+                           FontSize="12"
+                           IsVisible="False"/>
                     <StackLayout Padding="15"/>
 
                     <Label Text="Senha:"
                            HorizontalOptions="Start"/>
                     <Entry x:Name="txtSenha"
                            ClearButtonVisibility="WhileEditing"/>
+                    <Label x:Name="lblValidationSenha"
+                           Text="* Informe a senha."
+                           TextColor="Red"
+                           FontSize="12"
+                           IsVisible="False"/>
                     <StackLayout Padding="15"/>
 
                     <Button Text="Entrar"

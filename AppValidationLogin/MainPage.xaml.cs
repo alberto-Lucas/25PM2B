@@ -23,13 +23,27 @@
             txtCampo.TranslationX = 0;
         }
 
+        void ValidarCampo(
+            Entry txtCampo, Label lblValidation, string valor)
+        {
+            if(string.IsNullOrEmpty(txtCampo.Text))
+            {
+                TremerEntry(txtCampo);
+                lblValidation.IsVisible = true;
+            }
+            else if (txtCampo.Text != valor)
+            {
+                TremerEntry(txtCampo);
+                lblValidation.IsVisible = true;
+            }
+            else
+                lblValidation.IsVisible = false;
+        }
+
         private void btnEntrar_Clicked(object sender, EventArgs e)
         {
-            if (txtEmail.Text != "admin")
-                TremerEntry(txtEmail);
-
-            if (txtSenha.Text != "admin")
-                TremerEntry(txtSenha);
+            ValidarCampo(txtEmail, lblValidationEmail, "admin");
+            ValidarCampo(txtSenha, lblValidationSenha, "admin");
         }
     }
 
