@@ -20,5 +20,44 @@ namespace AppValidationLogin
             EntryCampo = txtCampo;
             LabelValidation = lblValidation;
         }
+
+        //Método para retornar o conteudo do Entry
+        public string GetText()
+        {
+            return EntryCampo.Text;
+        }
+
+        //Método para validar se o valor é igual
+        public bool IsEqual(string valor)
+        {
+            return EntryCampo.Text == valor;
+        }
+
+        //Método que verifica se está vazio
+        public bool IsEmpty()
+        {
+            return string.IsNullOrEmpty(EntryCampo.Text);
+        }
+
+        //Método para definir o texto do validation
+        public void SetValidation(string mensagem)
+        {
+            LabelValidation.Text = mensagem;
+            LabelValidation.IsVisible = true;
+        }
+
+        //Método de sobrecarga para aplicar animação de tremida
+        public void SetValidation(string mensagem, bool isTremer)
+        {
+            if (isTremer)
+                Animation.Tremer(EntryCampo);
+            SetValidation(mensagem);
+        }
+
+        //Método para ocultar o Validation
+        public void HideValidation()
+        {
+            LabelValidation.IsVisible = false;
+        }
     }
 }
