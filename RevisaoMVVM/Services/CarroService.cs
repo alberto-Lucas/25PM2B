@@ -20,5 +20,10 @@ namespace RevisaoMVVM.Services
         {
             dbSingleton.Carro = value;
         }
+
+        public Carro Consultar()
+        {
+            return dbSingleton.Carro;
+        }
     }
 }
