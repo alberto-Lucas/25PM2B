@@ -1,6 +1,7 @@
 ﻿using RevisaoMVVM.Models;
 using RevisaoMVVM.Views;
 using RevisaoMVVM.Services;
+using System.Windows.Input;
 
 namespace RevisaoMVVM.ViewModels
 {
@@ -58,6 +59,51 @@ namespace RevisaoMVVM.ViewModels
                 _cor = value; //gravar os dados
                 OnPropertyChanged(); //disparar a notificação
             }
+        }
+
+        //Implementar a rotina de cadastro]
+        //O Command precisa ser publico para ser acessado pelo front
+        public ICommand CadastrarCommand { get; set; }
+        //O método não precisa ser publico
+        //pois apenas o command será acessado
+        void Cadastrar()
+        {
+            //Instanciar a classe do Objeto
+            Carro carro = new Carro();
+            //popular o objeto com as informações em tela
+            carro.Marca = Marca;
+            carro.Modelo = Modelo;
+            carro.Cor = Cor;
+
+            //Salvar o registro no banco de dados
+            carroService.Adicionar(carro);
+
+            //Exibir a tela de vizualização
+            AbrirView(new CarroVisualizarView());
+        }
+
+        //Implementar a Rotina de Consulta
+        //O Command precisa ser publico para ser acessado pelo front
+        public ICommand ConsultarCommand { get; set; }
+        //O método não precisa ser publico
+        //pois apenas o command será acessado
+        void Consultar()
+        {
+            //Popular o objeto carro com o registro
+            //salvo no banco de dados
+            Carro carro = carroService.Consultar();
+
+            //Mapear o objeto com as propriedades da tela
+            Marca = carro.Marca;
+            Modelo = carro.Modelo;
+            Cor = carro.Cor;
+        }
+
+        //Vincular os commands
+        public CarroViewModel()
+        {
+            CadastrarCommand = new Command(Cadastrar);
+            ConsultarCommand = new Command(Consultar);
         }
     }
 }
