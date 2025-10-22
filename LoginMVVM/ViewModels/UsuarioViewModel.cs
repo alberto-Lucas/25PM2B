@@ -89,7 +89,34 @@ namespace LoginMVVM.ViewModels
         {
             //Rotina de mapeamento
             //objeto para tela
-            Usuario usuario
+            Usuario usuario = usuarioService.GetUsuario();
+            Nome = usuario.Nome;
+            Cpf = usuario.Cpf;
+            Email = usuario.Email;
+            Senha = usuario.Senha;
+            DtNascimento = usuario.DtNascimento;
+        }
+
+        public ICommand LoginCommand{ get; set; }
+        public void Login()
+        {
+            Usuario usuario = usuarioService.GetUsuario();
+
+            if ((Email == usuario.Email) &&
+                (Senha == usuario.Senha))
+            {
+                MsgInfo("Login efetuado com sucesso!");
+                AbrirView(new PrincipalView());
+            }
+            else
+                MsgInfo("Email ou Senha incorretos!");
+        }
+
+        public UsuarioViewModel()
+        {
+            CadastrarCommand = new Command(Cadastrar);
+            CarregarCommand = new Command(Carregar);
+            LoginCommand = new Command(Login);
         }
     }
 }
