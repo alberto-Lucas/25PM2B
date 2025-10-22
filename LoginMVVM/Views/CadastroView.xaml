@@ -3,10 +3,45 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="LoginMVVM.Views.CadastroView"
              Title="CadastroView">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+    <ScrollView>
+        <StackLayout Padding="15">
+            <Label Text="Cadastro"
+                   FontSize="30"
+                   HorizontalTextAlignment="Center"/>
+
+            <StackLayout Padding="10"/>
+            <Label Text="Nome:"/>
+            <Entry Text="{Binding Nome}"
+                   Placeholder="Fulano(a)"
+                   PlaceholderColor="LightGrey"/>
+
+            <StackLayout Padding="10"/>
+            <Label Text="CPF:"/>
+            <Entry Text="{Binding Cpf}"
+                   Placeholder="XXX.XXX.XXX-XX"
+                   PlaceholderColor="LightGrey"/>
+
+            <StackLayout Padding="10"/>
+            <Label Text="Email:"/>
+            <Entry Text="{Binding Email}"
+                   Placeholder="email@host.com"
+                   PlaceholderColor="LightGrey"/>
+
+            <StackLayout Padding="10"/>
+            <Label Text="Senha:"/>
+            <Entry Text="{Binding Senha}"
+                   Placeholder="**************"
+                   PlaceholderColor="LightGrey"/>
+
+            <StackLayout Padding="10"/>
+            <Label Text="Data Nascimento:"/>
+            <Entry Text="{Binding DtNascimento}"
+                   Placeholder="XX/XX/XXXX"
+                   PlaceholderColor="LightGrey"/>
+
+            <StackLayout Padding="10"/>
+            <Button Text="Cadastrar"
+                    Command="{Binding CadastrarCommand}"/>
+        </StackLayout>
+    </ScrollView>
 </ContentPage>

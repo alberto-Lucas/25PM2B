@@ -112,11 +112,18 @@ namespace LoginMVVM.ViewModels
                 MsgInfo("Email ou Senha incorretos!");
         }
 
+        public ICommand AbrirCadastroCommand { get; set; }
+        public void AbrirCadastro()
+        {
+            AbrirView(new CadastroView());
+        }
+
         public UsuarioViewModel()
         {
             CadastrarCommand = new Command(Cadastrar);
             CarregarCommand = new Command(Carregar);
             LoginCommand = new Command(Login);
+            AbrirCadastroCommand = new Command(AbrirCadastro);
         }
     }
 }

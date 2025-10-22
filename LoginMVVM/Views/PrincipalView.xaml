@@ -3,10 +3,19 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="LoginMVVM.Views.PrincipalView"
              Title="PrincipalView">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+    
+    <StackLayout Padding="15">
+        <Label Text="Principal"
+           FontSize="30"
+           HorizontalTextAlignment="Center"/>
+
+        <StackLayout Padding="10"/>
+        <Label Text="Seja bem vindo,"/>
+        <Entry Text="{Binding Nome}"
+               FontSize="25"/>
+
+        <StackLayout Padding="10"/>
+        <Button Text="Atualizar"
+                Command="{Binding AbrirCadastroCommand}"/>
+    </StackLayout>
 </ContentPage>
