@@ -65,7 +65,15 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Folder Include="View\" />
+	  <MauiXaml Update="Views\CadastroView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\LoginView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\PrincipalView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	</ItemGroup>
 
 </Project>
